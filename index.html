@@ -1,0 +1,208 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); color: var(--color-text-primary); }
+  .site { max-width: 680px; width: 100%; }
+
+  /* NAV */
+  .nav { background: #1a1a2e; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; }
+  .nav-logo { font-size: 18px; font-weight: 500; color: #fff; letter-spacing: 0.5px; }
+  .nav-logo span { color: #f5c842; }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a { font-size: 13px; color: rgba(255,255,255,0.75); text-decoration: none; }
+  .nav-cta { background: #f5c842; color: #1a1a2e; font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: var(--border-radius-md); text-decoration: none; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); padding: 48px 24px 40px; text-align: center; }
+  .hero-badge { display: inline-block; background: rgba(245,200,66,0.15); border: 0.5px solid rgba(245,200,66,0.4); color: #f5c842; font-size: 11px; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+  .hero h1 { font-size: 28px; font-weight: 500; color: #fff; line-height: 1.3; margin-bottom: 10px; }
+  .hero h1 span { color: #f5c842; }
+  .hero p { font-size: 14px; color: rgba(255,255,255,0.65); margin-bottom: 24px; line-height: 1.6; }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: #f5c842; color: #1a1a2e; font-size: 13px; font-weight: 500; padding: 10px 20px; border-radius: var(--border-radius-md); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-outline { border: 0.5px solid rgba(255,255,255,0.4); color: #fff; font-size: 13px; padding: 10px 20px; border-radius: var(--border-radius-md); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+
+  /* STATS */
+  .stats { background: #f5c842; padding: 16px 24px; display: flex; justify-content: space-around; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 20px; font-weight: 500; color: #1a1a2e; }
+  .stat-label { font-size: 11px; color: #5a4a00; margin-top: 2px; }
+
+  /* SECTION */
+  .section { padding: 32px 24px; background: var(--color-background-primary); }
+  .section-alt { background: var(--color-background-secondary); }
+  .section-title { font-size: 18px; font-weight: 500; margin-bottom: 6px; }
+  .section-sub { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 24px; }
+
+  /* PRODUCTS */
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .product-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+  .product-img { height: 80px; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+  .product-body { padding: 10px 12px; }
+  .product-name { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+  .product-price { font-size: 12px; color: var(--color-text-secondary); }
+  .product-tag { display: inline-block; background: #fff8e0; color: #7a5c00; font-size: 10px; padding: 2px 8px; border-radius: 20px; margin-top: 6px; border: 0.5px solid #f5c84240; }
+
+  /* WHY US */
+  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .why-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; }
+  .why-icon { font-size: 20px; margin-bottom: 8px; color: #d4a800; }
+  .why-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+  .why-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+
+  /* LOCATION */
+  .location-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 16px; display: flex; gap: 16px; align-items: flex-start; }
+  .location-icon-wrap { width: 40px; height: 40px; background: #fff8e0; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .location-icon-wrap i { color: #d4a800; font-size: 20px; }
+  .location-detail { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; }
+  .location-detail strong { color: var(--color-text-primary); font-weight: 500; display: block; margin-bottom: 4px; }
+
+  /* CTA BANNER */
+  .cta-banner { background: #1a1a2e; padding: 28px 24px; text-align: center; }
+  .cta-banner h2 { font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 8px; }
+  .cta-banner p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+  .wa-btn { display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #fff; font-size: 14px; font-weight: 500; padding: 12px 24px; border-radius: var(--border-radius-md); text-decoration: none; cursor: pointer; border: none; }
+
+  /* FOOTER */
+  .footer { background: #111; padding: 16px 24px; text-align: center; border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg); }
+  .footer p { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .footer span { color: #f5c842; }
+</style>
+
+<div class="site">
+  <nav class="nav">
+    <div class="nav-logo">MBA <span>Kapde Wala</span></div>
+    <div class="nav-links">
+      <a href="#">Collection</a>
+      <a href="#">About</a>
+      <a href="#">Location</a>
+    </div>
+    <a class="nav-cta" href="#">Enquire Now</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-badge">Indore's Budget Fashion Hub</div>
+    <h1>Men's Fashion,<br><span>Honest Prices.</span></h1>
+    <p>Shirts, T-shirts, Jeans, Trousers & Combos —<br>perfect fit guaranteed at Airport Road, Indore.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> WhatsApp Us</a>
+      <a class="btn-outline" href="#"><i class="ti ti-map-pin" aria-hidden="true"></i> Get Directions</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Styles in store</div></div>
+    <div class="stat"><div class="stat-num">₹299</div><div class="stat-label">Starting price</div></div>
+    <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Customer rating</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Fit guarantee</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Our collection</div>
+    <div class="section-sub">Best-selling men's apparel at unbeatable prices</div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img" style="background:#f0f4ff;">👔</div>
+        <div class="product-body">
+          <div class="product-name">Casual shirts</div>
+          <div class="product-price">From ₹349</div>
+          <div class="product-tag">Bestseller</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#fff0f0;">👕</div>
+        <div class="product-body">
+          <div class="product-name">T-shirts</div>
+          <div class="product-price">From ₹299</div>
+          <div class="product-tag">New stock</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#f0fff4;">🧥</div>
+        <div class="product-body">
+          <div class="product-name">Denim shirts</div>
+          <div class="product-price">From ₹599</div>
+          <div class="product-tag">Trending</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#fffdf0;">👖</div>
+        <div class="product-body">
+          <div class="product-name">Jeans & trousers</div>
+          <div class="product-price">From ₹499</div>
+          <div class="product-tag">All sizes</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#f5f0ff;">🎁</div>
+        <div class="product-body">
+          <div class="product-name">Combo sets</div>
+          <div class="product-price">From ₹799</div>
+          <div class="product-tag">Best value</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#fff5f0;">✨</div>
+        <div class="product-body">
+          <div class="product-name">Festive wear</div>
+          <div class="product-price">From ₹699</div>
+          <div class="product-tag">New</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-alt">
+    <div class="section-title">Why customers love us</div>
+    <div class="section-sub">MBA Kapde Wala — more than just a clothing store</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <i class="ti ti-currency-rupee why-icon" aria-hidden="true"></i>
+        <div class="why-title">Genuinely affordable</div>
+        <div class="why-desc">No hidden markups. Honest pricing on every item, every day.</div>
+      </div>
+      <div class="why-card">
+        <i class="ti ti-ruler-measure why-icon" aria-hidden="true"></i>
+        <div class="why-title">Perfect fit, every time</div>
+        <div class="why-desc">Wide size range with in-store fitting assistance included.</div>
+      </div>
+      <div class="why-card">
+        <i class="ti ti-shirt why-icon" aria-hidden="true"></i>
+        <div class="why-title">500+ styles in stock</div>
+        <div class="why-desc">Casual, formal, denim, festive — all under one roof.</div>
+      </div>
+      <div class="why-card">
+        <i class="ti ti-users why-icon" aria-hidden="true"></i>
+        <div class="why-title">Family-run, trusted store</div>
+        <div class="why-desc">Locally managed with years of experience serving Indore men.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Visit us</div>
+    <div class="section-sub">We're easy to find on Airport Road</div>
+    <div class="location-card">
+      <div class="location-icon-wrap"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+      <div class="location-detail">
+        <strong>MBA Kapde Wala</strong>
+        Airport Road, Opposite IDBI Bank,<br>
+        Sukhdev Nagar, Indore, MP<br><br>
+        <i class="ti ti-phone" style="font-size:14px; vertical-align:-2px;" aria-hidden="true"></i> &nbsp;90995 81010<br>
+        <i class="ti ti-clock" style="font-size:14px; vertical-align:-2px;" aria-hidden="true"></i> &nbsp;Open daily: 10:00 AM – 9:00 PM
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <h2>Ready to upgrade your wardrobe?</h2>
+    <p>Chat with us on WhatsApp — ask about stock, combos, or bulk orders.</p>
+    <button class="wa-btn" onclick="openLink('https://wa.me/919099581010?text=Hi%2C%20I%20saw%20your%20website%20and%20want%20to%20know%20more%20about%20your%20collection')">
+      <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Chat on WhatsApp
+    </button>
+  </div>
+
+  <div class="footer">
+    <p>© 2025 <span>MBA Kapde Wala</span> · Airport Road, Indore · All rights reserved</p>
+  </div>
+</div>
